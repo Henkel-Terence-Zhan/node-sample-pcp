@@ -8,12 +8,12 @@ title:
 header: "[Back](./index.md#5)"
 ---
 
-## RESTful APIs
+## RESTful API
 
-出处: Roy Thomas Fielding 在[UCI](https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm)提交的论文--"Architectural Styles and
-the Design of Network-based Software Architectures".
+出处: *Architectural Styles and
+the Design of Network-based Software Architectures*
 
-在论文的[第五章](https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm)提出了REST的感念，[第六章](https://www.ics.uci.edu/~fielding/pubs/dissertation/evaluation.htm)中分享REST的应用经验
+是Roy Thomas Fielding 在[UCI](https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm)的论文。在论文的[第五章](https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm)提出了REST的感念，[第六章](https://www.ics.uci.edu/~fielding/pubs/dissertation/evaluation.htm)中分享REST实践的经验
 
 ---
 

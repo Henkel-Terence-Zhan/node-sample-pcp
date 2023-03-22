@@ -2,9 +2,6 @@
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
   <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
     <p align="center">
 <a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
@@ -29,12 +26,37 @@
 ## Installation
 
 ```bash
+#
 $ npm install
 ```
 
 ## Running the app
 
+Create a .env file and add the following information to the file.
+
+```ini
+PORT=3001
+
+; DB config
+POSTGRES_HOST=localhost
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+POSTGRES_PORT=15432
+POSTGRES_DB=PCP
+POSTGRES_SSL=false
+
+```
+
 ```bash
+# create and start containers
+$ docker compose up -d
+
+# removes stopped service containers - 
+$ docker compose down -v
+```
+
+```bash
+
 # development
 $ npm run start
 
@@ -43,6 +65,7 @@ $ npm run start:dev
 
 # production mode
 $ npm run start:prod
+
 ```
 
 ## Test
