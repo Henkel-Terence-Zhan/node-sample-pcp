@@ -127,8 +127,8 @@
           "type": "table",
           "schemaName": "default",
           "tableName": "user",
-          "x": 305,
-          "y": 46,
+          "x": 455,
+          "y": 76,
           "width": 200,
           "height": 100,
           "isBold": false,
@@ -143,8 +143,8 @@
           "type": "table",
           "schemaName": "default",
           "tableName": "product",
-          "x": 320,
-          "y": 539,
+          "x": 470,
+          "y": 569,
           "width": 200,
           "height": 100,
           "isBold": false,
@@ -159,8 +159,8 @@
           "type": "table",
           "schemaName": "default",
           "tableName": "order",
-          "x": 315,
-          "y": 270,
+          "x": 465,
+          "y": 300,
           "width": 200,
           "height": 100,
           "isBold": false,
@@ -175,8 +175,8 @@
           "type": "table",
           "schemaName": "default",
           "tableName": "cart",
-          "x": 53,
-          "y": 266,
+          "x": 203,
+          "y": 296,
           "width": 200,
           "height": 100,
           "isBold": false,
@@ -191,8 +191,8 @@
           "type": "table",
           "schemaName": "default",
           "tableName": "favourite",
-          "x": 590,
-          "y": 267,
+          "x": 740,
+          "y": 297,
           "width": 200,
           "height": 100,
           "isBold": false,
@@ -214,17 +214,17 @@
           "visible": true,
           "vertices": [
             {
-              "x": 153,
-              "y": 251
+              "x": 303,
+              "y": 281
             },
             {
-              "x": 290,
-              "y": 102
+              "x": 440,
+              "y": 132
             }
           ],
           "label": {
-            "x": 161,
-            "y": 230,
+            "x": 311,
+            "y": 260,
             "width": 100,
             "height": 31,
             "fontName": "Arial Unicode MS",
@@ -248,17 +248,17 @@
           "visible": true,
           "vertices": [
             {
-              "x": 415,
-              "y": 161
+              "x": 565,
+              "y": 191
             },
             {
-              "x": 415,
-              "y": 255
+              "x": 565,
+              "y": 285
             }
           ],
           "label": {
-            "x": 417,
-            "y": 110,
+            "x": 567,
+            "y": 140,
             "width": 110,
             "height": 31,
             "fontName": "Arial Unicode MS",
@@ -282,17 +282,17 @@
           "visible": true,
           "vertices": [
             {
-              "x": 153,
-              "y": 381
+              "x": 303,
+              "y": 411
             },
             {
-              "x": 305,
-              "y": 591
+              "x": 455,
+              "y": 621
             }
           ],
           "label": {
-            "x": 155,
-            "y": 330,
+            "x": 305,
+            "y": 360,
             "width": 120,
             "height": 31,
             "fontName": "Arial Unicode MS",
@@ -316,17 +316,17 @@
           "visible": true,
           "vertices": [
             {
-              "x": 520,
-              "y": 102
+              "x": 670,
+              "y": 132
             },
             {
-              "x": 690,
-              "y": 252
+              "x": 840,
+              "y": 282
             }
           ],
           "label": {
-            "x": 516,
-            "y": 104,
+            "x": 666,
+            "y": 134,
             "width": 131,
             "height": 31,
             "fontName": "Arial Unicode MS",
@@ -350,17 +350,17 @@
           "visible": true,
           "vertices": [
             {
-              "x": 690,
-              "y": 382
+              "x": 840,
+              "y": 412
             },
             {
-              "x": 535,
-              "y": 595
+              "x": 685,
+              "y": 625
             }
           ],
           "label": {
-            "x": 698,
-            "y": 372,
+            "x": 848,
+            "y": 402,
             "width": 151,
             "height": 31,
             "fontName": "Arial Unicode MS",
@@ -384,17 +384,17 @@
           "visible": true,
           "vertices": [
             {
-              "x": 414,
-              "y": 385
+              "x": 564,
+              "y": 415
             },
             {
-              "x": 413,
-              "y": 524
+              "x": 563,
+              "y": 554
             }
           ],
           "label": {
-            "x": 286,
-            "y": 334,
+            "x": 436,
+            "y": 364,
             "width": 130,
             "height": 31,
             "fontName": "Arial Unicode MS",

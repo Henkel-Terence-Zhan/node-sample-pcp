@@ -26,11 +26,8 @@ header: "[Back](./index.md#7)"
 
 1. **Controller-Service-Repository pattern**
 1. **ORM**
-1. **IoC/DI**
-
-1. *DTO Serialization*
-1. Mapper
-
+    <!-- 1. **IoC/DI** -->
+    <!-- 1. Serialization -->
     ---
 1. **Docker**
 
@@ -48,17 +45,33 @@ header: "[Back](./index.md#7)"
 | Repository | storage of the entity beans in the system              |
 ---
 
-### ORM
+1. Controller
+    - Serialization & Validate
+    - Authenticate & Authorization
+1. Service
+1. Repository
 
 ---
 
+### ORM
+
+Object Relational Mapping
+
+1. 兼容多种数据库
+1. 映射规则 -- 将 Entity 转换成 数据库的表
+1. 迁移（migration）
+    - 表结构
+    - 数据
+
+---
+<!-- 
 ### IoC/DI
 
 Reference: [IOC Introduction](https://www.tutorialsteacher.com/ioc/introduction)
 
 ![image](https://www.tutorialsteacher.com/Content/images/ioc/principles-and-patterns.png)
 
----
+--- -->
 
 ### Docker
 
@@ -82,22 +95,30 @@ Reference: [IOC Introduction](https://www.tutorialsteacher.com/ioc/introduction)
     ---
 1. [Configuration](https://docs.nestjs.com/techniques/configuration)
 1. [Typeorm](https://docs.nestjs.com/recipes/sql-typeorm)
-1. [Serialization](https://docs.nestjs.com/techniques/serialization)
+1. [Swagger](https://docs.nestjs.com/openapi/introduction)
+1. [Serialization](https://docs.nestjs.com/techniques/serialization) & [Validation](https://docs.nestjs.com/techniques/validation)
 1. [Authentication](https://docs.nestjs.com/security/authentication)
 1. [Authorization](https://docs.nestjs.com/security/authorization)
 
 ---
 
-### Tutorial
+数据库设计
 
-create a project
+<!-- ![bg 20%](./pcp.svg "with:20px") -->
+![bg 60%](./pcp.png "with:20px")
+
+---
+
+<!-- ### Tutorial -->
+
+创建项目
 
 ```bash
 # new a project called `pcp`
 $ nest new pcp
 ```
 
-docker
+使用docker 创建 PostgreSQL database container
 
 ```bash
 # create a file for the docker compose
@@ -108,10 +129,113 @@ $ docker compose up -d
 ```
 
 ---
-
-using the NestJS [Configuration](https://docs.nestjs.com/techniques/configuration) module
+[Configuration](https://docs.nestjs.com/techniques/configuration)
 
 ```bash
-## add dependencies
+# add dependencies
 $ npm i --save @nestjs/config
+
+# create .env file
+$ touch .env
+```
+
+---
+
+[Typeorm](https://docs.nestjs.com/recipes/sql-typeorm)
+
+```bash
+# install dependencies
+$ npm i --save @nestjs/typeorm 
+# install PostgreSQL Driver
+$ npm i --save pg
+```
+
+---
+
+```javascript
+
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      port: (process.env.POSTGRES_PORT || 5432) as number,
+      host: process.env.POSTGRES_HOST,
+      database: process.env.POSTGRES_DB,
+      username: process.env.POSTGRES_USER,
+      password: process.env.POSTGRES_PASSWORD,
+      ssl: process.env.POSTGRES_SSL?.toLocaleLowerCase() === 'true' ? true : false,
+      autoLoadEntities: true,
+      synchronize: true,
+      // migrations
+    })
+```
+
+---
+
+[Swagger](https://docs.nestjs.com/openapi/introduction)
+
+```bash
+#
+$ npm i --save @nestjs/swagger
+
+```
+
+```javascript
+
+  const config = new DocumentBuilder()
+    .setTitle('Product Category')
+    .setDescription('Knowledge Transfer -- Implementing Product Categories')
+    .setVersion('0.1')
+    .build();
+  const document = SwaggerModule.createDocument(app, config);
+  SwaggerModule.setup('api', app, document);
+
+```
+
+---
+
+ [Serialization](https://docs.nestjs.com/techniques/serialization) & [Validation](https://docs.nestjs.com/techniques/validation)
+
+```bash
+# install
+$ npm i --save class-validator class-transformer
+```
+
+Serialization 通常是将 Object（来源：Body, QueryParam） 转换成DTO & 将DTO转换成Entity;
+`其它叫法：transform、 mapper、mapping`
+
+Validation 通常就是验证数据类型、长度、格式 等
+
+---
+一般会在Global启用Validation
+
+```javascript
+
+  app.useGlobalPipes(
+    new ValidationPipe({
+      transform: true,
+      transformOptions: {
+        // 一般 transform 的 策略 会改成 "Exclude" Pattern
+        strategy: 'excludeAll',
+      },
+    }),
+  );
+
+```
+
+---
+
+### Resources
+
+1. User
+1. Product
+1. Favourite
+1. Order
+1. Cart
+
+```bash
+# 
+$ nest generate res Users 
+$ nest generate res Products 
+$ nest generate res Favourites
+$ nest generate res Orders
+$ nest generate res Carts
 ```
