@@ -63,9 +63,15 @@ After the session FE developers could build a service could offer a PCP page cou
 
 - Database
     1. SQL
+        <!-- 
+        1. T-SQL                     - MSSQL
+        1. PL/SQL                    - Oracle
+        1. SQL/PSM(ISO Standard)     - MySQL     
+        -->
     1. NoSQL(**Not Only SQL**)
 
     ---
+
 - Programming Language
 
 ---
@@ -88,7 +94,10 @@ After the session FE developers could build a service could offer a PCP page cou
 <!-- 
   - 20X    -    正常的
   - 40X    -    已知的异常
-  - 50X    -    未捕获的异常/未知的异常 -->
+      - 401
+      - 403
+  - 50X    -    未捕获的异常/未知的异常 
+-->
 
 - Resources/ Resources metadata
 
@@ -98,11 +107,10 @@ After the session FE developers could build a service could offer a PCP page cou
 
 ---
 
-## Sample
+## [Sample](./sample.md)
 
 以 “Product Category Page” 为例子
 
 - DB Design
-- NestJS
-  - CLI
+- Nest
 - Project Initialization
