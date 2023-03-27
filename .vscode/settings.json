@@ -1,5 +1,6 @@
 {
   "cSpell.words": [
     "marp"
-  ]
+  ],
+  "typescript.preferences.importModuleSpecifier": "relative"
 }
