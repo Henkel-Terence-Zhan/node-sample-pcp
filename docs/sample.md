@@ -97,15 +97,7 @@ Reference: [IOC Introduction](https://www.tutorialsteacher.com/ioc/introduction)
 1. [Typeorm](https://docs.nestjs.com/recipes/sql-typeorm)
 1. [Swagger](https://docs.nestjs.com/openapi/introduction)
 1. [Serialization](https://docs.nestjs.com/techniques/serialization) & [Validation](https://docs.nestjs.com/techniques/validation)
-1. [Authentication](https://docs.nestjs.com/security/authentication)
-1. [Authorization](https://docs.nestjs.com/security/authorization)
-
----
-
-数据库设计
-
-<!-- ![bg 20%](./pcp.svg "with:20px") -->
-![bg 60%](./pcp.png "with:20px")
+1. [Authentication](https://docs.nestjs.com/security/authentication) & [Authorization](https://docs.nestjs.com/security/authorization)
 
 ---
 
@@ -192,6 +184,97 @@ $ npm i --save @nestjs/swagger
 
 ---
 
+[原型分析](https://www.figma.com/proto/hso3vTBVbpaJUoaKDB1Zvy/Salonory?node-id=2173-116134&scaling=min-zoom&page-id=2074%3A100328) -- XMind(思维导图工具)
+[Conceptual Model](pcp.ndmc2) / ~~Logic Model / Physical Model~~
+
+<!-- ![bg 20%](./pcp.svg "with:20px") -->
+![bg 60% ](./pcp.png "with:20px")
+
+---
+
+### Resources
+
+1. User
+1. Product
+1. Favourite
+1. Order
+1. Cart
+
+---
+
+```bash
+# 
+$ nest generate res Users 
+$ nest generate res Products 
+$ nest generate res Favourites
+$ nest generate res Orders
+$ nest generate res Carts
+```
+
+---
+
+User Entity
+
+```javascript
+@Entity()
+@Index(['email', 'password'])
+export class User extends BaseEntity {
+  @Column({ nullable: false })
+  name: string;
+  @Column({ nullable: false, unique: true })
+  email: string;
+  @Column({ nullable: false })
+  password: string;
+
+  @OneToMany(() => Favourite, (favorites) => favorites.owner, { lazy: true })
+  carts: Promise<Cart[]>;
+  @OneToMany(() => Favourite, (favorites) => favorites.owner, { lazy: true })
+  orders: Promise<Order[]>;
+  @OneToMany(() => Favourite, (favorites) => favorites.owner, { lazy: true })
+  favorites: Promise<Favourite[]>;
+}
+```
+
+---
+
+Base Entity
+
+```javascript
+
+export class BaseEntity {
+  @PrimaryColumn({ generated: 'identity' })
+  id: number;
+
+  @CreateDateColumn()
+  createdAt: Date;
+  @Column({ nullable: true })
+  createdBy: number;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
+  @Column({ nullable: true })
+  updatedBy: number;
+}
+```
+
+---
+
+UsersModule
+
+```javascript
+
+@Module({
+  controllers: [UsersController],
+  providers: [UsersService],
+  // 这段在定义好 User Entity 之后, 需要将Entity导入
+  imports: [TypeOrmModule.forFeature([User])],
+})
+export class UsersModule {}
+
+```
+
+---
+
  [Serialization](https://docs.nestjs.com/techniques/serialization) & [Validation](https://docs.nestjs.com/techniques/validation)
 
 ```bash
@@ -213,29 +296,12 @@ Validation 通常就是验证数据类型、长度、格式 等
     new ValidationPipe({
       transform: true,
       transformOptions: {
-        // 一般 transform 的 策略 会改成 "Exclude" Pattern
+        // 一般 transform 的 策略 会改成 "Exclude" Pattern;
+        // 目的: 剔除特殊不需要操作的字段，如 createdBy, updatedBy, password
         strategy: 'excludeAll',
       },
     }),
   );
-
 ```
 
 ---
-
-### Resources
-
-1. User
-1. Product
-1. Favourite
-1. Order
-1. Cart
-
-```bash
-# 
-$ nest generate res Users 
-$ nest generate res Products 
-$ nest generate res Favourites
-$ nest generate res Orders
-$ nest generate res Carts
-```

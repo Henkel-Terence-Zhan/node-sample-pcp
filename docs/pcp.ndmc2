@@ -21,26 +21,7 @@
             "objectType": "Table_CONCEPTUAL",
             "name": "user",
             "oldName": "",
-            "foreignKeys": [
-              {
-                "objectType": "ForeignKey_CONCEPTUAL",
-                "name": "fk_user_order_1",
-                "referencedSchema": "default",
-                "referencedTable": "order",
-                "sourceCardinality": "OneAndOnlyOneRelationship",
-                "targetCardinality": "ZeroOrManyRelationship",
-                "oldName": ""
-              },
-              {
-                "objectType": "ForeignKey_CONCEPTUAL",
-                "name": "fk_user_favourite_1",
-                "referencedSchema": "default",
-                "referencedTable": "favourite",
-                "sourceCardinality": "OneAndOnlyOneRelationship",
-                "targetCardinality": "OneOrManyRelationship",
-                "oldName": ""
-              }
-            ]
+            "foreignKeys": []
           },
           {
             "objectType": "Table_CONCEPTUAL",
@@ -58,8 +39,17 @@
                 "name": "fk_order_product_1",
                 "referencedSchema": "default",
                 "referencedTable": "product",
-                "sourceCardinality": "OneOrManyRelationship",
-                "targetCardinality": "OneOrManyRelationship",
+                "sourceCardinality": "ManyRelationship",
+                "targetCardinality": "ManyRelationship",
+                "oldName": ""
+              },
+              {
+                "objectType": "ForeignKey_CONCEPTUAL",
+                "name": "fk_order_user_1",
+                "referencedSchema": "default",
+                "referencedTable": "user",
+                "sourceCardinality": "ZeroOrManyRelationship",
+                "targetCardinality": "OneAndOnlyOneRelationship",
                 "oldName": ""
               }
             ]
@@ -74,7 +64,7 @@
                 "name": "fk_cart_user_1",
                 "referencedSchema": "default",
                 "referencedTable": "user",
-                "sourceCardinality": "OneOrManyRelationship",
+                "sourceCardinality": "ZeroOrManyRelationship",
                 "targetCardinality": "OneAndOnlyOneRelationship",
                 "oldName": ""
               },
@@ -83,7 +73,7 @@
                 "name": "fk_cart_product_1",
                 "referencedSchema": "default",
                 "referencedTable": "product",
-                "sourceCardinality": "OneOrManyRelationship",
+                "sourceCardinality": "ZeroOrManyRelationship",
                 "targetCardinality": "OneAndOnlyOneRelationship",
                 "oldName": ""
               }
@@ -99,7 +89,16 @@
                 "name": "fk_favourite_product_1",
                 "referencedSchema": "default",
                 "referencedTable": "product",
-                "sourceCardinality": "OneOrManyRelationship",
+                "sourceCardinality": "ZeroOrManyRelationship",
+                "targetCardinality": "OneAndOnlyOneRelationship",
+                "oldName": ""
+              },
+              {
+                "objectType": "ForeignKey_CONCEPTUAL",
+                "name": "fk_favourite_user_1",
+                "referencedSchema": "default",
+                "referencedTable": "user",
+                "sourceCardinality": "ZeroOrManyRelationship",
                 "targetCardinality": "OneAndOnlyOneRelationship",
                 "oldName": ""
               }
@@ -127,7 +126,7 @@
           "type": "table",
           "schemaName": "default",
           "tableName": "user",
-          "x": 455,
+          "x": 465,
           "y": 76,
           "width": 200,
           "height": 100,
@@ -218,7 +217,7 @@
               "y": 281
             },
             {
-              "x": 440,
+              "x": 450,
               "y": 132
             }
           ],
@@ -226,40 +225,6 @@
             "x": 311,
             "y": 260,
             "width": 100,
-            "height": 31,
-            "fontName": "Arial Unicode MS",
-            "fontSize": 14,
-            "fontColor": {
-              "r": 51,
-              "g": 51,
-              "b": 51,
-              "a": 1
-            },
-            "isFontBold": false,
-            "isFontItalic": false,
-            "isVisible": false
-          }
-        },
-        {
-          "name": "fk_user_order_1",
-          "sourceTableName": "user",
-          "sourceSchemaName": "default",
-          "lineWidth": 1,
-          "visible": true,
-          "vertices": [
-            {
-              "x": 565,
-              "y": 191
-            },
-            {
-              "x": 565,
-              "y": 285
-            }
-          ],
-          "label": {
-            "x": 567,
-            "y": 140,
-            "width": 110,
             "height": 31,
             "fontName": "Arial Unicode MS",
             "fontSize": 14,
@@ -294,40 +259,6 @@
             "x": 305,
             "y": 360,
             "width": 120,
-            "height": 31,
-            "fontName": "Arial Unicode MS",
-            "fontSize": 14,
-            "fontColor": {
-              "r": 51,
-              "g": 51,
-              "b": 51,
-              "a": 1
-            },
-            "isFontBold": false,
-            "isFontItalic": false,
-            "isVisible": false
-          }
-        },
-        {
-          "name": "fk_user_favourite_1",
-          "sourceTableName": "user",
-          "sourceSchemaName": "default",
-          "lineWidth": 1,
-          "visible": true,
-          "vertices": [
-            {
-              "x": 670,
-              "y": 132
-            },
-            {
-              "x": 840,
-              "y": 282
-            }
-          ],
-          "label": {
-            "x": 666,
-            "y": 134,
-            "width": 131,
             "height": 31,
             "fontName": "Arial Unicode MS",
             "fontSize": 14,
@@ -396,6 +327,74 @@
             "x": 436,
             "y": 364,
             "width": 130,
+            "height": 31,
+            "fontName": "Arial Unicode MS",
+            "fontSize": 14,
+            "fontColor": {
+              "r": 51,
+              "g": 51,
+              "b": 51,
+              "a": 1
+            },
+            "isFontBold": false,
+            "isFontItalic": false,
+            "isVisible": false
+          }
+        },
+        {
+          "name": "fk_favourite_user_1",
+          "sourceTableName": "favourite",
+          "sourceSchemaName": "default",
+          "lineWidth": 1,
+          "visible": true,
+          "vertices": [
+            {
+              "x": 847,
+              "y": 282
+            },
+            {
+              "x": 680,
+              "y": 120
+            }
+          ],
+          "label": {
+            "x": 718,
+            "y": 251,
+            "width": 131,
+            "height": 31,
+            "fontName": "Arial Unicode MS",
+            "fontSize": 14,
+            "fontColor": {
+              "r": 51,
+              "g": 51,
+              "b": 51,
+              "a": 1
+            },
+            "isFontBold": false,
+            "isFontItalic": false,
+            "isVisible": false
+          }
+        },
+        {
+          "name": "fk_order_user_1",
+          "sourceTableName": "order",
+          "sourceSchemaName": "default",
+          "lineWidth": 1,
+          "visible": true,
+          "vertices": [
+            {
+              "x": 565,
+              "y": 285
+            },
+            {
+              "x": 565,
+              "y": 191
+            }
+          ],
+          "label": {
+            "x": 573,
+            "y": 264,
+            "width": 110,
             "height": 31,
             "fontName": "Arial Unicode MS",
             "fontSize": 14,
