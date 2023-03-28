@@ -2,5 +2,6 @@
   "cSpell.words": [
     "marp"
   ],
-  "typescript.preferences.importModuleSpecifier": "relative"
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "markdown.marp.enableHtml": true
 }

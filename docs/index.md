@@ -56,7 +56,7 @@ After the session FE developers could build a service could offer a PCP page cou
 
 ## Backend
 
-- **OS** / Network / WebService
+- **OS** / Network / WebServer
 
     ---
 - Design Patterns
@@ -89,8 +89,8 @@ After the session FE developers could build a service could offer a PCP page cou
 一种风格约定
 
 - HTTP
-  - Method
-  - Status Codes
+  - Request Methods
+  - Response Status Codes
 <!-- 
   - 20X    -    正常的
   - 40X    -    已知的异常

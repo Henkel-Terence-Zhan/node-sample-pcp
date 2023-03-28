@@ -13,7 +13,9 @@ header: "[Back](./index.md#5)"
 出处: *Architectural Styles and
 the Design of Network-based Software Architectures*
 
-是Roy Thomas Fielding 在[UCI](https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm)的论文。在论文的[第五章](https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm)提出了REST的感念，[第六章](https://www.ics.uci.edu/~fielding/pubs/dissertation/evaluation.htm)中分享REST实践的经验
+REST这个词，是Roy Thomas Fielding在他2000年的[博士论文](https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm)中提出的。在论文的[第五章](https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm)提出了REST的感念，[第六章](https://www.ics.uci.edu/~fielding/pubs/dissertation/evaluation.htm)中分享REST实践的经验。
+
+也可以参考阮一峰的[理解RESTful架构](https://www.ruanyifeng.com/blog/2011/09/restful.html)
 
 ---
 
@@ -90,3 +92,19 @@ DELETE /users/:userId/roles/:id
 Request Params: `:id` - some resource field (slug)
 Result: empty | resource object
 Status codes: 200 | 404
+
+---
+
+**其它处理方式--前缀**
+多端：2B/2C
+可以添加 /2b 或 /2c 前缀，如： GET /2b/users
+
+版本:
+可以添加 /v{version} 前缀 如：GET /v1/users
+
+**其它处理方式--后缀**
+批量添加数据
+可以添加 /bulk 后缀, 如：POST /users/bulk
+
+重置密码
+可以添加 /{metadata}_{action} 如：PATCH /users/:id/password_reset
