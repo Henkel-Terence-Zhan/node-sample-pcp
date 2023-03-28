@@ -18,7 +18,10 @@ async function bootstrap() {
   {
     const config = new DocumentBuilder()
       .setTitle('Product Category')
-      .setDescription('Knowledge Transfer -- Implementing Product Categories')
+      .setDescription(
+        `Knowledge Transfer -- Implementing Product Categories.
+        <a href="/api-json" target="_blank">API JSON</a>`,
+      )
       .setVersion('0.1')
       .build();
     const document = SwaggerModule.createDocument(app, config);

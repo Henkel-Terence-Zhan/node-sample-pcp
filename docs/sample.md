@@ -7,13 +7,13 @@ header: "[Back](./index.md#7)"
 
 ## Introduction
 
-1. Development Environment Dependency
+1. Development Environment Requirements
 1. Technical Point
 1. Project Initialization
 
 ---
 
-## Development Dependencies
+## Development Environment Requirements
 
 1. Docker 4.x or higher
 1. Node.js v16.x or higher, v16.19 is recommended
@@ -288,6 +288,7 @@ Serialization 通常是将 Object（来源：Body, QueryParam） 转换成DTO & 
 Validation 通常就是验证数据类型、长度、格式 等
 
 ---
+
 一般会在Global启用Validation
 
 ```javascript
@@ -305,3 +306,21 @@ Validation 通常就是验证数据类型、长度、格式 等
 ```
 
 ---
+
+### Controller-Service-Repository
+
+Controller
+
+- Authentication
+- Authorization
+- DTO Mapping to Entity & Validation
+- Call Service
+
+---
+Service
+
+- Call Repository
+- Entity to DTO
+
+---
+Repository

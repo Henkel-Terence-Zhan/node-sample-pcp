@@ -23,6 +23,7 @@ import { UsersModule } from './users/users.module';
         process.env.POSTGRES_SSL?.toLocaleLowerCase() === 'true' ? true : false,
       autoLoadEntities: true,
       synchronize: true,
+      // logging: 'all',
       // migrations
     }),
     UsersModule,
