@@ -313,12 +313,13 @@ Controller
 
 - Authentication
 - Authorization
-- DTO Mapping to Entity & Validation
+- Plain object to DTO & Validation
 - Call Service
 
 ---
 Service
 
+- DTO to Entity
 - Call Repository
 - Entity to DTO
 
